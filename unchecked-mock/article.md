@@ -2,9 +2,6 @@
 
 ### A test where nothing is guessed.
 
-Locked sections only — approved in conversation before being added here. Title and subtitle
-locked (step 9). This is continuous body prose, following skeleton_b.md's order.
-
 
 ```java
 @Test
