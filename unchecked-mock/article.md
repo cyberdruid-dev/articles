@@ -1,5 +1,7 @@
 # Nobody Has Ever Checked If Your Mock Is Right
 
+![Open Tickets Test](assets/open-tickets-test.png)
+
 ### A test where nothing is guessed.
 
 
