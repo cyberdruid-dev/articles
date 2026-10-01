@@ -30,7 +30,7 @@
 
         <feign.version>13.15</feign.version>
         <spring-cloud-openfeign.version>5.0.3</spring-cloud-openfeign.version>
-        <jdbscript.version>1.1.0</jdbscript.version>
+        <jdbscript.version>1.3.0</jdbscript.version>
         <testng.version>7.12.0</testng.version>
         <assertj.version>3.27.7</assertj.version>
     </properties>
