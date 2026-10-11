@@ -100,3 +100,7 @@ integration itself — is broken.
 
 
 Full example, including what's not shown here: [github.com/cyberdruid-dev/articles/tree/main/unchecked-mock/example](https://github.com/cyberdruid-dev/articles/tree/main/unchecked-mock/example).
+
+---
+
+*This approach and its tooling grew out of backend systems built at [Silk Data](https://silkdata.tech), where we've relied on end-to-end database testing across production architectures for over a decade.*
