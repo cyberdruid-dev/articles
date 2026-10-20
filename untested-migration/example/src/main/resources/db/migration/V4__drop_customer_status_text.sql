@@ -1,0 +1,2 @@
+ALTER TABLE customer DROP COLUMN status;
+ALTER TABLE customer ALTER COLUMN status_id SET NOT NULL;
