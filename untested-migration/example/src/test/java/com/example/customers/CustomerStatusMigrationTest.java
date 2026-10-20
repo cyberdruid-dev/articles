@@ -12,9 +12,6 @@ import org.testng.annotations.Test;
 
 public class CustomerStatusMigrationTest {
 
-    private static final String ADD_STATUS_LOOKUP = "2";
-    private static final String DROP_STATUS_TEXT = "4";
-
     private interface IBeforeSchema extends IDBSchema {
         ICustomerRecord customer();
 
@@ -60,7 +57,7 @@ public class CustomerStatusMigrationTest {
 
     @Test
     public void every_customer_keeps_its_status() {
-        migration.migrateBefore(ADD_STATUS_LOOKUP);
+        migration.migrateBefore("2");
         migration.before().insertDB(db -> {
             db.customer().id(1).name("Acme").status("ACTIVE");
             db.customer().id(2).name("Globex").status("INACTIVE");
@@ -68,7 +65,7 @@ public class CustomerStatusMigrationTest {
             db.customer().id(4).name("Umbrella").status("Active "); // trailing space
         });
 
-        migration.migrateTo(DROP_STATUS_TEXT);
+        migration.migrateTo("4");
 
         migration.after().assertDBHas(db -> {
             db.customer_status().id(1).code("ACTIVE");
@@ -82,14 +79,14 @@ public class CustomerStatusMigrationTest {
 
     @Test
     public void customer_without_known_status_becomes_inactive() {
-        migration.migrateBefore(ADD_STATUS_LOOKUP);
+        migration.migrateBefore("2");
         migration.before().insertDB(db -> {
             db.customer().id(1).name("Acme").status("ACTIVE");
             db.customer().id(2).name("Hooli").status(null);
             db.customer().id(3).name("Wayne").status("SUSPENDED");
         });
 
-        migration.migrateTo(DROP_STATUS_TEXT);
+        migration.migrateTo("4");
 
         migration.after().assertDBHas(db -> {
             db.customer().id(1).status_id(1);
